@@ -77,4 +77,4 @@ def scrap(keyword):
         pass
 
 
-scrap('upnormal cibubur')
+scrap('saung mang engking cibubur')
