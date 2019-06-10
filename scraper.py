@@ -35,9 +35,9 @@ def extract(driver, loading_time):
         print(rating)
         try:
             container.find_element_by_xpath('//a[@class="fl review-more-link"]').click()
+            review = container.find_element_by_class_name('review-full-text').text
         except:
-            pass
-        review = container.find_element_by_class_name('Jtu6Td').text
+            review = container.find_element_by_class_name('Jtu6Td').text
         print(review)
 
         if rating != 3:
@@ -73,8 +73,17 @@ def scrap(keyword):
         time.sleep(loading_time)
         rates, reviews = extract(driver, loading_time)
         save(rates, reviews)
+        driver.close()
     except:
         pass
 
 
+scrap('bara grill')
+scrap('upnormal cibubur')
+scrap('bakso boedjangan cibubur')
 scrap('saung mang engking cibubur')
+scrap('Gubug Udang Situ Cibubur')
+scrap('Gubug Udang Situ Cibubur')
+scrap('Pondok kemangi cibubur')
+scrap('Fat bubble cibubur')
+scrap('warung keibar cibubur')
