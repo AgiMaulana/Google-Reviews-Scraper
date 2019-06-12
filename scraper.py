@@ -34,7 +34,7 @@ def extract(driver, loading_time):
         print(rate_score)
         print(rating)
         try:
-            container.find_element_by_xpath('//a[@class="fl review-more-link"]').click()
+            container.find_element_by_partial_link_text('Lengkapnya').click()
             review = container.find_element_by_class_name('review-full-text').text
         except:
             review = container.find_element_by_class_name('Jtu6Td').text
@@ -44,6 +44,8 @@ def extract(driver, loading_time):
             rates.append(rating)
             reviews.append(review)
 
+    # print(zip(rates, reviews))
+    # return [],[]
     return rates, reviews
 
 
@@ -73,17 +75,19 @@ def scrap(keyword):
         time.sleep(loading_time)
         rates, reviews = extract(driver, loading_time)
         save(rates, reviews)
-        driver.close()
     except:
         pass
+    driver.close()
 
-
-scrap('bara grill')
-scrap('upnormal cibubur')
-scrap('bakso boedjangan cibubur')
-scrap('saung mang engking cibubur')
-scrap('Gubug Udang Situ Cibubur')
-scrap('Gubug Udang Situ Cibubur')
-scrap('Pondok kemangi cibubur')
+#
+# scrap('bakso boedjangan cibubur')
+# scrap('saung mang engking cibubur')
+# scrap('Gubug Udang Situ Cibubur')
+# scrap('Pondok kemangi cibubur')
 scrap('Fat bubble cibubur')
-scrap('warung keibar cibubur')
+scrap('keibar cibubur')
+scrap('upnormal cibubur')
+scrap('coffee toffee cibubur')
+scrap('coffee toffee kota wisata')
+scrap('honeycomb kota wisata')
+scrap('fly the wind kota wisata')
